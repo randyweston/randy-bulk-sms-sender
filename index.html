@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8f5">
+  <link rel="icon" href="randy-sms.ico" sizes="any">
+  <meta name="description" content="Randy Bulk SMS Sender is a Windows app for sending SMS through a GSM modem. Import CSV or Excel contacts and download the Windows x64 or Windows 8/8.1 x86 installer.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Randy Bulk SMS Sender for Windows">
+  <meta property="og:description" content="Send SMS through a connected GSM modem. Get the Windows x64 or Windows 8/8.1 x86 installer.">
+  <title>Randy Bulk SMS Sender for Windows | GSM Modem SMS App</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f6f8f5;
+      --ink: #162821;
+      --muted: #53635d;
+      --green: #176849;
+      --green-dark: #104d37;
+      --mint: #dcefe5;
+      --line: #d8e1da;
+      --white: #fff;
+      --amber: #f0be64;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.6 var(--sans); }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--amber); outline-offset: 4px; border-radius: 4px; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    .topbar { height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { display: inline-flex; gap: 12px; align-items: center; text-decoration: none; font-weight: 700; letter-spacing: -.02em; }
+    .brand-mark { width: 39px; height: 39px; display: block; object-fit: contain; border-radius: 8px; }
+    .nav { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: 14px; }
+    .nav a { text-decoration: none; }
+    .nav a:hover { color: var(--green); }
+    .nav .nav-download { padding: 10px 15px; color: var(--white); background: var(--green); border-radius: 7px; font-weight: 700; }
+    .hero { position: relative; overflow: hidden; padding: 88px 0 84px; }
+    .hero::after { position: absolute; content: ""; width: 440px; height: 440px; top: 5px; right: -44px; border: 1px solid #cbdcd0; border-radius: 50%; box-shadow: 0 0 0 44px var(--paper), 0 0 0 45px #e4ebe5, 0 0 0 100px var(--paper), 0 0 0 101px #e8eee9; pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; max-width: 720px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 23px; color: var(--green); text-transform: uppercase; letter-spacing: .13em; font-size: 12px; font-weight: 800; }
+    .eyebrow::before { content: ""; width: 25px; height: 2px; background: var(--amber); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 690px; margin-bottom: 22px; font: 500 clamp(42px, 6.2vw, 70px)/1.04 var(--serif); letter-spacing: -.045em; }
+    .hero-copy { max-width: 600px; margin-bottom: 31px; color: var(--muted); font-size: 18px; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; }
+    .button { min-height: 49px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 18px; border: 1px solid var(--green); border-radius: 7px; background: var(--green); color: var(--white); text-decoration: none; font-weight: 700; transition: background .16s ease, transform .16s ease; }
+    .button:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .button.secondary { color: var(--green); background: transparent; }
+    .button.secondary:hover { background: var(--mint); }
+    .button svg { width: 17px; height: 17px; }
+    .hero-note { display: flex; align-items: center; gap: 9px; margin-top: 19px; color: var(--muted); font-size: 13px; }
+    .check { width: 19px; height: 19px; display: grid; place-items: center; background: var(--mint); color: var(--green); border-radius: 50%; font-size: 12px; font-weight: 800; }
+    .signal { position: absolute; z-index: 1; width: 220px; height: 220px; top: 137px; right: 105px; display: grid; place-items: center; }
+    .signal-disc { width: 168px; height: 168px; display: grid; place-items: center; border: 1px solid #a9c8b5; border-radius: 50%; background: #e9f3ec; }
+    .signal-disc svg { width: 75px; height: 75px; color: var(--green); }
+    .signal-tag { position: absolute; right: -25px; bottom: 13px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 5px; background: var(--white); box-shadow: 0 6px 20px #203d2c12; color: var(--green-dark); font-size: 12px; font-weight: 700; }
+    .strip { background: var(--green-dark); color: var(--white); }
+    .strip-inner { display: grid; grid-template-columns: repeat(3, 1fr); padding: 22px 0; }
+    .strip-item { display: flex; align-items: center; justify-content: center; gap: 11px; padding: 4px 12px; border-right: 1px solid #ffffff32; font-size: 14px; }
+    .strip-item:last-child { border-right: 0; }
+    .strip-item strong { color: #d9f0df; font-weight: 600; }
+    .strip-icon { color: #f0be64; font-size: 18px; line-height: 1; }
+    section { padding: 78px 0; }
+    .section-heading { max-width: 600px; margin-bottom: 36px; }
+    .section-heading .eyebrow { margin-bottom: 14px; }
+    h2 { margin-bottom: 13px; font: 500 clamp(32px, 4vw, 45px)/1.12 var(--serif); letter-spacing: -.035em; }
+    .section-heading p { margin-bottom: 0; color: var(--muted); }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--line); }
+    .feature { min-height: 190px; padding: 27px; background: var(--paper); }
+    .feature-icon { width: 38px; height: 38px; display: grid; place-items: center; margin-bottom: 20px; border: 1px solid #bbd6c4; border-radius: 9px; background: #e9f3ec; color: var(--green); font-size: 18px; font-weight: 700; }
+    .feature h3 { margin-bottom: 7px; font-size: 17px; }
+    .feature p { max-width: 280px; margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .download-section { background: #eaf0e9; }
+    .download-layout { display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: 65px; }
+    .download-layout .section-heading { margin-bottom: 0; }
+    .download-layout .section-heading p { max-width: 365px; }
+    .download-list { border-top: 1px solid #cbd8cd; }
+    .download-row { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; padding: 21px 0; border-bottom: 1px solid #cbd8cd; }
+    .download-row h3 { margin-bottom: 4px; font-size: 16px; }
+    .download-row p { margin-bottom: 0; color: var(--muted); font-size: 13px; }
+    .download-row .button { min-height: 42px; padding: 0 14px; font-size: 13px; }
+    .release-link { display: inline-block; margin-top: 19px; color: var(--green); font-size: 14px; font-weight: 700; text-underline-offset: 3px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 34px; }
+    .step { border-top: 2px solid var(--green); padding-top: 17px; }
+    .step-num { display: block; margin-bottom: 14px; color: var(--green); font: 500 28px var(--serif); }
+    .step h3 { margin-bottom: 6px; font-size: 16px; }
+    .step p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .requirements { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; padding: 25px 28px; border: 1px solid var(--line); border-radius: 9px; background: var(--white); }
+    .requirements h3 { margin-bottom: 8px; font-size: 15px; }
+    .requirements p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .footer { padding: 25px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .footer a { color: var(--green); text-underline-offset: 3px; }
+    @media (max-width: 800px) {
+      .hero { padding: 67px 0 65px; }
+      .hero::after { right: -220px; opacity: .65; }
+      .signal { right: -4px; opacity: .26; }
+      .hero-inner { max-width: 640px; }
+      .download-layout { grid-template-columns: 1fr; gap: 34px; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 34px, 1120px); }
+      .topbar { height: 68px; }
+      .brand { font-size: 14px; }
+      .brand-mark { width: 34px; height: 34px; }
+      .nav { gap: 0; }
+      .nav a:not(.nav-download) { display: none; }
+      .nav .nav-download { padding: 9px 12px; font-size: 13px; }
+      .hero { padding: 60px 0 52px; }
+      .hero::after { right: -330px; }
+      .signal { top: 91px; right: -75px; transform: scale(.78); opacity: .15; }
+      .hero-inner { z-index: 2; }
+      h1 { max-width: 540px; font-size: clamp(43px, 13vw, 60px); }
+      .hero-copy { max-width: 460px; font-size: 16px; }
+      .strip-inner { grid-template-columns: 1fr; padding: 11px 0; }
+      .strip-item { justify-content: flex-start; padding: 9px 0; border-right: 0; font-size: 13px; }
+      section { padding: 59px 0; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature { min-height: unset; padding: 22px; }
+      .feature-icon { margin-bottom: 14px; }
+      .download-row { grid-template-columns: 1fr; gap: 12px; }
+      .download-row .button { justify-self: start; }
+      .steps { grid-template-columns: 1fr; gap: 22px; }
+      .requirements { grid-template-columns: 1fr; gap: 21px; padding: 22px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#top" aria-label="Randy Bulk SMS Sender home">
+      <img class="brand-mark" src="randy-sms.ico" alt="">
+      <span>Randy <span style="font-weight:400">Bulk SMS Sender</span></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a class="nav-download" href="#download">Download</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">SMS from your Windows desktop</p>
+        <h1>Reach your contacts through the modem you already use.</h1>
+        <p class="hero-copy">Prepare a recipient list, write your message, and send SMS through a connected GSM modem with Randy Bulk SMS Sender.</p>
+        <div class="actions">
+          <a class="button" href="#download">Choose your Windows download <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="button secondary" href="https://github.com/randyactavis/randy-bulk-sms-sender">View project on GitHub</a>
+        </div>
+        <p class="hero-note"><span class="check" aria-hidden="true">✓</span> Two installers available: 64-bit Windows and legacy 32-bit Windows</p>
+      </div>
+      <div class="signal" aria-hidden="true"><div class="signal-disc"><svg viewBox="0 0 80 80" fill="none"><path d="M15 30c14-14 36-14 50 0M23 39c9-9 25-9 34 0M31 48c5-5 13-5 18 0" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="58" r="4" fill="currentColor"/><path d="M23 13h34a7 7 0 0 1 7 7v40a7 7 0 0 1-7 7H23a7 7 0 0 1-7-7V20a7 7 0 0 1 7-7Z" stroke="currentColor" stroke-width="2" opacity=".35"/></svg></div><span class="signal-tag">GSM modem + SIM</span></div>
+    </section>
+
+    <div class="strip" aria-label="App highlights"><div class="wrap strip-inner">
+      <div class="strip-item"><span class="strip-icon" aria-hidden="true">↗</span><strong>Send with a GSM modem</strong></div>
+      <div class="strip-item"><span class="strip-icon" aria-hidden="true">▤</span><strong>Import CSV or Excel lists</strong></div>
+      <div class="strip-item"><span class="strip-icon" aria-hidden="true">✓</span><strong>Review message results</strong></div>
+    </div></div>
+
+    <section id="features" class="wrap">
+      <div class="section-heading"><p class="eyebrow">Made for practical sending</p><h2>From contact list to sent messages.</h2><p>Keep the workflow straightforward: bring in your list, prepare your SMS, and review the outcome.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><span class="feature-icon" aria-hidden="true">⇧</span><h3>Import your contacts</h3><p>Load recipient lists from CSV or Excel spreadsheets and prepare them for sending.</p></article>
+        <article class="feature"><span class="feature-icon" aria-hidden="true">✉</span><h3>Send through your modem</h3><p>Use a compatible GSM modem and an active SIM card to send SMS from your Windows PC.</p></article>
+        <article class="feature"><span class="feature-icon" aria-hidden="true">▦</span><h3>Review the results</h3><p>Check the send summary and download a CSV report of message results.</p></article>
+      </div>
+    </section>
+
+    <section id="download" class="download-section">
+      <div class="wrap download-layout">
+        <div class="section-heading"><p class="eyebrow">Version 1.0.13</p><h2>Pick the installer for your PC.</h2><p>Both downloads are Windows installers. Choose the version that matches your Windows edition and system type.</p></div>
+        <div>
+          <div class="download-list">
+            <article class="download-row"><div><h3>Windows 10 or later · 64-bit</h3><p>Recommended for current 64-bit Windows PCs.</p></div><a class="button" href="https://github.com/randyactavis/randy-bulk-sms-sender/releases/latest/download/Randy-Bulk-SMS-Sender-Setup-1.0.13.exe" aria-label="Download Randy Bulk SMS Sender 1.0.13 for Windows 10 or later 64-bit">Download x64</a></article>
+            <article class="download-row"><div><h3>Windows 8/8.1 · 32-bit (x86)</h3><p>Legacy installer, tested on Windows 8/8.1 x86.</p></div><a class="button" href="https://github.com/randyactavis/randy-bulk-sms-sender/releases/latest/download/Randy-Bulk-SMS-Sender-Legacy-Win8-x86-Setup-1.0.13.exe" aria-label="Download Randy Bulk SMS Sender 1.0.13 legacy installer for Windows 8 or 8.1 32-bit">Download x86</a></article>
+          </div>
+          <a class="release-link" href="https://github.com/randyactavis/randy-bulk-sms-sender/releases/latest">See release notes and all downloads →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="wrap">
+      <div class="section-heading"><p class="eyebrow">Getting started</p><h2>Three steps to your first send.</h2><p>You’ll need a supported Windows PC, a compatible GSM modem, and a SIM card with SMS service.</p></div>
+      <div class="steps">
+        <article class="step"><span class="step-num">01</span><h3>Install the app</h3><p>Download the installer that matches your Windows system and follow its prompts.</p></article>
+        <article class="step"><span class="step-num">02</span><h3>Connect your modem</h3><p>Attach your GSM modem and make sure its SIM card is active and ready to send SMS.</p></article>
+        <article class="step"><span class="step-num">03</span><h3>Load a list and send</h3><p>Import your CSV or Excel contact list, compose your message, and review the results.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding-top:0">
+      <div class="requirements">
+        <div><h3>System requirements</h3><p>Windows 10 or later (64-bit), or Windows 8/8.1 (32-bit) with the matching installer. A compatible GSM modem and active SIM are required to send SMS.</p></div>
+        <div><h3>Questions or support?</h3><p>Visit the <a href="https://github.com/randyactavis/randy-bulk-sms-sender">GitHub project</a> for release information and support options.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-inner"><span>© 2026 Randy · Randy Bulk SMS Sender</span><a href="https://github.com/randyactavis/randy-bulk-sms-sender/releases/latest">Official downloads on GitHub</a></div></footer>
+</body>
+</html>

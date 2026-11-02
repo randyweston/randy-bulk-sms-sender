@@ -74,6 +74,13 @@
     .feature-icon { width: 38px; height: 38px; display: grid; place-items: center; margin-bottom: 20px; border: 1px solid #bbd6c4; border-radius: 9px; background: #e9f3ec; color: var(--green); font-size: 18px; font-weight: 700; }
     .feature h3 { margin-bottom: 7px; font-size: 17px; }
     .feature p { max-width: 280px; margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .gallery-section { padding-top: 72px; }
+    .screenshot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 19px; }
+    .screenshot-card { overflow: hidden; margin: 0; border: 1px solid var(--line); border-radius: 9px; background: var(--white); }
+    .screenshot-card img { display: block; width: 100%; height: auto; background: #17202b; }
+    .screenshot-card figcaption { display: grid; gap: 3px; padding: 15px 17px 17px; }
+    .screenshot-card figcaption strong { font-size: 14px; }
+    .screenshot-card figcaption span { color: var(--muted); font-size: 12px; line-height: 1.5; }
     .download-section { background: #eaf0e9; }
     .download-layout { display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: 65px; }
     .download-layout .section-heading { margin-bottom: 0; }
@@ -101,6 +108,7 @@
       .signal { right: -4px; opacity: .26; }
       .hero-inner { max-width: 640px; }
       .download-layout { grid-template-columns: 1fr; gap: 34px; }
+      .screenshot-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
       .wrap { width: min(100% - 34px, 1120px); }
@@ -122,6 +130,8 @@
       .feature-grid { grid-template-columns: 1fr; }
       .feature { min-height: unset; padding: 22px; }
       .feature-icon { margin-bottom: 14px; }
+      .gallery-section { padding-top: 53px; }
+      .screenshot-grid { grid-template-columns: 1fr; gap: 14px; }
       .download-row { grid-template-columns: 1fr; gap: 12px; }
       .download-row .button { justify-self: start; }
       .steps { grid-template-columns: 1fr; gap: 22px; }
@@ -142,6 +152,7 @@
     </a>
     <nav class="nav" aria-label="Main navigation">
       <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
       <a href="#how-it-works">How it works</a>
       <a class="nav-download" href="#download">Download</a>
     </nav>
@@ -174,6 +185,15 @@
         <article class="feature"><span class="feature-icon" aria-hidden="true">⇧</span><h3>Import your contacts</h3><p>Load recipient lists from CSV or Excel spreadsheets and prepare them for sending.</p></article>
         <article class="feature"><span class="feature-icon" aria-hidden="true">✉</span><h3>Send through your modem</h3><p>Use a compatible GSM modem and an active SIM card to send SMS from your Windows PC.</p></article>
         <article class="feature"><span class="feature-icon" aria-hidden="true">▦</span><h3>Review the results</h3><p>Check the send summary and download a CSV report of message results.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap gallery-section" id="screenshots">
+      <div class="section-heading"><p class="eyebrow">A look inside</p><h2>See the sending workflow.</h2><p>Prepare a list, select a modem, and follow message progress from the app.</p></div>
+      <div class="screenshot-grid">
+        <figure class="screenshot-card"><img src="screenshot-recipient-list.webp" alt="Randy SMS Sender recipient list and message setup screen" width="1100" height="583" loading="lazy" decoding="async"><figcaption><strong>Prepare your recipient list</strong><span>Enter numbers directly or choose a CSV or Excel file.</span></figcaption></figure>
+        <figure class="screenshot-card"><img src="screenshot-modem-selection.webp" alt="Randy SMS Sender modem selection and review before sending" width="1100" height="574" loading="lazy" decoding="async"><figcaption><strong>Select a modem and review</strong><span>Choose a connected modem, then review the send before starting.</span></figcaption></figure>
+        <figure class="screenshot-card"><img src="screenshot-send-results.webp" alt="Randy SMS Sender send progress and message results summary; recipient details are blurred" width="1100" height="655" loading="lazy" decoding="async"><figcaption><strong>Follow message progress</strong><span>See the send summary and download a CSV report of results.</span></figcaption></figure>
       </div>
     </section>
 

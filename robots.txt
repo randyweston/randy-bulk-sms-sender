@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://randyweston.github.io/randy-bulk-sms-sender/sitemap.xml

@@ -1,12 +1,15 @@
-# Randy Bulk SMS Sender landing page
+# Randy Bulk SMS Sender
 
-This is a standalone, dependency-free GitHub Pages landing page. It links to the published 1.0.13 x64 and legacy x86 installers in the GitHub Releases page. The `randy-sms.ico` file provides the page icon and brand mark.
+Official product site: <https://randyweston.github.io/randy-bulk-sms-sender/>.
+
+This repository contains the Windows desktop app source and release downloads. The official product site is the landing page for product details, screenshots, compatibility, and downloads. Releases are hosted here on GitHub.
+
+The site is a standalone, dependency-free GitHub Pages page. It includes three optimized screenshots; recipient numbers in the list screenshot were removed, and recipient-level results in the results screenshot were blurred.
 
 ## Publish with GitHub Pages
 
-1. In the `randy-bulk-sms-sender` repository, choose **Add file → Upload files**.
-2. Upload both `index.html` and `randy-sms.ico` from this folder to the repository root (not into a subfolder), then commit the changes.
-3. Open **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/(root)`, then save.
-4. Wait for GitHub Pages to publish. The site URL will be shown in the Pages settings, usually `https://randyactavis.github.io/randy-bulk-sms-sender/`.
+1. Upload every file from the `landing-page` folder to the repository root and commit the changes.
+2. In **Settings > Pages**, choose **Deploy from a branch**, select `main` and `/(root)`, then save.
+3. Confirm the published site URL is `https://randyweston.github.io/randy-bulk-sms-sender/`.
 
-The installer links point to the `v1.0.13` files in the latest GitHub release. Update their filenames if a future release changes the asset names.
+The landing page declares this URL as canonical and includes structured software metadata. Keep the GitHub repository description focused on source code and releases, and link to the official site in the repository's About section.
